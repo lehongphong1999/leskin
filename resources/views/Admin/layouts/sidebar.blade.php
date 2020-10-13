@@ -144,8 +144,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              {{-- {{ route('indexappointment') }} --}}
+            <a href="{{ route('indexbook') }}" class="nav-link">
               <i style="margin-left: 4px" class="fa fa-calendar-check-o" aria-hidden="true"></i>
               <p style="margin-left: 8px">
                 Quản lý Lịch hẹn
