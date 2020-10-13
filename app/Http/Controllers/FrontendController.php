@@ -12,6 +12,7 @@ use App\intros;
 use App\users;
 use App\news_sales;
 use App\contacts;
+use App\book_appointments;
 
 class FrontendController extends Controller
 {
@@ -42,6 +43,24 @@ class FrontendController extends Controller
     }
     public function contact(){
         return view('Frontend.contact');
+    }
+    public function book(){
+        $id = $_GET['id'];
+        $category = categories::where('id',$id)->get();
+        return view('Frontend.book',compact('category'));
+    }
+    public function postbook(Request $request){
+        if(Auth::check()){
+            $book_appointment = new book_appointments();
+            $book_appointment->service = $request->service;
+            $book_appointment->time_book = $request->time_book;
+            $book_appointment->note = $request->note;
+            $book_appointment->id_user = Auth::user()->id;
+            $book_appointment->save();
+            return redirect()->route('index');
+        }else{
+            return redirect()->route('index');
+        }
     }
     public function postcontact(Request $request){
         $contact = new contacts();

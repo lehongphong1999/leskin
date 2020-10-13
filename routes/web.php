@@ -32,6 +32,8 @@ use Illuminate\Support\Facades\Route;
     Route::get('contact','FrontendController@contact' )->name('contact');
     Route::post('postcontact','FrontendController@postcontact' )->name('postcontact');
 
+    Route::get('book','FrontendController@book' )->name('book');
+    Route::post('postbook','FrontendController@postbook' )->name('postbook');
 
     Route::get('news','FrontendController@news' )->name('news');
 
@@ -162,6 +164,12 @@ Route::group(['prefix'=>'admin'],function(){
     Route::post('posteditnewssale','AdminController@posteditnewssale')->name('posteditnewssale');
     
     Route::get('deletenewssale', 'AdminController@deletenewssale')->name('deletenewssale');
+
+
+    Route::get('book', 'AdminController@indexbook')->name('indexbook');
+
+    Route::get('deletebook', 'AdminController@deletebook')->name('deletebook');
+
 });
 
 

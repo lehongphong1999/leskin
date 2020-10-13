@@ -96,7 +96,7 @@
                 <br>
                 {!! html_entity_decode($item->content) !!}
             </div> 
-            <div class="option">
+            <div class="option" style="margin-left: 120px">
                 <div class="quantity">
                     <span> Mã Khuyến Mại :</span>
                     <div class="note">
@@ -128,14 +128,14 @@
                 {!! html_entity_decode($item->content) !!}
             </div> 
             <div class="option" >
-                <div class="quantity"style="padding-left: 430px">
+                {{--  <div class="quantity"style="padding-left: 430px">
                     <span> Ngày :</span>
                     <div class="note">
                         <input type="datetime-local" title="" >
                     </div>
-                </div>
-                <div class="buy_now">
-                    <a href="#"> Đặt lịch ngay <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                </div>  --}}
+                <div class="buy_now" style="margin-left: 700px">
+                    <a href="{{ route('book', ['id'=>$item->id]) }}"> Đặt lịch ngay <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
                 <div class="add_cart">
                     <a href="#"><i style="color: white" class="fa fa-star" aria-hidden="true"></i></a>

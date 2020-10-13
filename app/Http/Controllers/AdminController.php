@@ -9,6 +9,7 @@ use App\news;
 use App\intros;
 use App\coupons;
 use App\news_sales;
+use App\book_appointments;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -404,5 +405,16 @@ class AdminController extends Controller
     }
 
 
-
+    public function indexbook(){
+        $db = book_appointments::join('users','users.id','=','book_appointments.id_user')->get();
+        return view('Admin.Book.index',compact('db'));
+    }
+    public function deletebook(){
+        if (isset($_GET['id'])&&!empty($_GET['id'])) { // Check id empty 
+            $db = book_appointments::where('id',$_GET['id'])->delete();
+            return redirect()->route('indexbook');
+        }
+        else {    
+        }    
+    }
 }
