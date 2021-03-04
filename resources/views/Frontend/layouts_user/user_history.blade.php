@@ -11,28 +11,41 @@
 
 <div class="form-info">
     <div class="title3">
-        <span>LỊCH SỬ GIAO DỊCH</span>
+        <span>LỊCH SỬ </span>
     </div>
     <div class="history-detail">
         <div class="history-detail-menu">
+            <span>STT </span>
             <span>Ngày </span>
-            <span>Nội dung </span>
-            <span>Số tiền </span>
+            <span>Tổng tiền </span>
+            <span>Phương thức </span>
+            <span>Số ĐT</span>
+            <span>Địa chỉ</span>
             <span>Trạng thái </span>
+            <span> </span>
         </div>
         <div class="history-detail-item">
-            <div class="history-detail-item1">
-                <span>24/7/2020 </span>
-                <span>Mua Mỹ Phẩm Bran2d-66-DCIM </span>
-                <span>-300.000 </span>
-                <span>Thành công </span> 
-            </div>
-            <div class="history-detail-item1">
-                <span>24/7/2020 </span>
-                <span>Mua Mỹ Phẩm Bran2d-66-DCIM </span>
-                <span>-300.000 </span>
-                <span>Thành công </span> 
-            </div>
+            @if (!is_null($history))
+                @php
+                    $temp = 0;
+                    $total = 0;
+                @endphp
+                @foreach ($history as $item)
+                @php
+                    $temp++;
+                @endphp
+                <div class="history-detail-item1">
+                    <span>{{ $temp }} </span>
+                    <span>{{ $item->created_at->format('d-m-Y') }}</span>
+                    <span>{{ number_format($item->total_money) }} VNĐ</span>
+                    <span>{{ ($item->method_ship) }}</span>
+                    <span>{{ ($item->phone) }}</span>
+                    <span>{{ ($item->address) }}</span>  
+                    <span>Thành công</span>
+                    <a href="{{ route('detailorder', ['id'=>$item->id]) }}"<i class="fa fa-eye" aria-hidden="true"></i></a> 
+                </div>
+                @endforeach
+            @endif    
         </div>
     </div>
 </div>

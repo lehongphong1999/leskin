@@ -7,12 +7,6 @@
       <div class="col-sm-6">
         <h1>Banner</h1>
       </div>
-      <div class="col-sm-6">
-        <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item active">Banner</li>
-        </ol>
-      </div>
     </div>
   </div><!-- /.container-fluid -->
 </section>
@@ -21,14 +15,14 @@
       <div class="card">
         <div class="card-header">
           <button type="submit" style="height: 30px ;width: 80px;;color: #fff;background-color:  rgb(124, 230, 124); border:none ; border-radius: 25rem; margin-right: 10px"><a href="{{ route('addbanner') }}"><i class="fa fa-plus" aria-hidden="true" ></i><b>  Add</b></a></button>
-          <div class="card-tools">
+          {{-- <div class="card-tools">
             <div class="input-group input-group-sm" style="width: 150px;">
               <input type="text" name="table_search" class="form-control float-right" placeholder="Search" style="border-radius: 25rem;">
               <div class="input-group-append">
                 <button style="border-radius: 25rem; margin-left: 10px" type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
               </div>
             </div>
-          </div>
+          </div> --}}
         </div>
         <!-- /.card-header -->
         <div class="card-body table-responsive p-0" >
@@ -37,6 +31,7 @@
               <tr>
                 <th>STT</th>
                 <th>Link Banner</th>
+                <th>Banner</th>
                 <th>Tiêu đề</th>
                 <th>Nội dung</th>
                 <th>Link Event</th>
@@ -50,6 +45,9 @@
                 <tr>
                     <td>{{ $item->id }}</td>
                     <td>{{ $item->link_image_banner }}</td>
+                    <td> 
+                      <img style="width: 40px ; height: 40px;" src="{{ $item->link_image_banner }}">
+                    </td>
                     <td>{{ $item->title }}</td>
                     <td>{{ $item->content }}</td>
                     <td>{{ $item->link_url_event }}</td>

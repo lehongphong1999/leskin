@@ -1,6 +1,6 @@
 <div>
-    <a href="tel:(024) 320 686 55" mypage="" class="hotline-fixed">
-        <i style="margin-right: 15px;" class="fa fa-phone" aria-hidden="true"></i><span>024 320 686 55</span>
+    <a href="tel:(032) 686868" mypage="" class="hotline-fixed">
+        <i style="margin-right: 15px;" class="fa fa-phone" aria-hidden="true"></i><span>032 68 68 68</span>
     </a>
 </div>
 <!--partner-->
@@ -12,16 +12,16 @@
             </div>
             <ul>
                 <li>
-                <h6>CÔNG TY CÔNG NGHỆ MỚI LESKIN VIỆT NAM</h6>
+                <h6>CÔNG TY CÔNG NGHỆ MỚI BEAUTY SPA VIỆT NAM</h6>
                 </li>
                 <li>
-                    <p><i class="fa fa-map-marker" aria-hidden="true" style="margin-right: 9px;"></i>Số 1 LK 11A, KĐT Mỗ Lao, Hà Đông, Hà Nội</p>
+                    <p><i class="fa fa-map-marker" aria-hidden="true" style="margin-right: 9px;"></i>43 Trần Xuân Soạn, Ngô Thì Nhậm, Hai Bà Trưng, Hà Nội</p>
                 </li>
                 <li>
-                    <p><i class="fa fa-phone" aria-hidden="true" style="margin-right: 9px;"></i>320 686 55</p> 
+                    <p><i class="fa fa-phone" aria-hidden="true" style="margin-right: 9px;"></i>032 6868 68</p> 
                 </li>
                 <li>
-                    <p><i class="fa fa-envelope" aria-hidden="true" style="margin-right: 9px;"></i>info@leskin.com.vn</p>
+                    <p><i class="fa fa-envelope" aria-hidden="true" style="margin-right: 9px;"></i>info@beautyspa.com.vn</p>
                 </li>
             </ul>
         </div>
@@ -34,7 +34,7 @@
                     <h6> ĐỐI TÁC </h6>
                 </li>
                 <li >
-                    <a href="#" style="display: inline-block; margin-top: 19px;">Vì sao bạn nên hợp tác với Leskin</a>
+                    <a href="#" style="display: inline-block; margin-top: 19px;">Vì sao bạn nên hợp tác với Beauty Spa</a>
                 </li>
                 <li>
                     <a href="#">Chính sách đối tác</a>
@@ -66,7 +66,7 @@
             </div>
             <ul>
                 <li>
-                    <h6>KẾT NỐI LESKIN</h6>
+                    <h6>KẾT NỐI BEAUTY SPA</h6>
                 </li>
                 <li style="display: inline-block; margin-top: 19px;">
                     <i class="fa fa-facebook" aria-hidden="true" style="color: #3b5999; font-size: 30px;"></i>
@@ -83,5 +83,5 @@
     </div>
 </div>
 <div class="bot">
-    © 2019 Copyright Leskin.com.vn. All rights reserved.
+    © 2020 Copyright Beautyspa.com.vn. All rights reserved.
 </div>

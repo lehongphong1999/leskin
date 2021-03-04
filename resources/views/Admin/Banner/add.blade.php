@@ -2,12 +2,7 @@
 
 @section('content')
 <div class="card-header">
-    <h3 class="card-title"><b>Admin <i class="fa fa-angle-right" aria-hidden="true"></i> Thêm Banner</b></h3>
-
-    <div class="card-tools">
-      <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-        <i class="fas fa-minus"></i></button>
-    </div>
+    <h3 class="card-title"><b>Banner <i class="fa fa-angle-right" aria-hidden="true"></i> Thêm Banner</b></h3>
   </div>
   <form action="{{ route('postaddbanner') }}" method="POST" >
     @csrf

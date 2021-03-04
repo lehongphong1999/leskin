@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Mail;
 use App\User;
-
+use App\users;
 
 class LoginController extends Controller
 {
@@ -47,8 +47,17 @@ class LoginController extends Controller
             return redirect()->route('index');
         }else{
             if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
-                return redirect()->route('index');  
-            }else{
+                // $user = users::where('email',$request->email);
+                if($request->email=='admin@gmail.com'||$request->email=='employee1@gmail.com'||$request->email=='employee2@gmail.com'){
+                    return redirect()->route('indexdashboard');
+                    echo "<script type='text/javascript'>alert('Đăng nhập thành công trang quản trị ');</script>";
+                }
+                else{
+                    return redirect()->route('index');
+                    echo "<script type='text/javascript'>alert('Đăng nhập thành công');</script>";
+                }   
+            }
+            else{
                 return redirect()->route('index');
             }
         }

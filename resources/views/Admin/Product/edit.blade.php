@@ -3,7 +3,7 @@
 @section('content')
     
 <div class="card-header">
-    <h3 class="card-title"><b>Admin <i class="fa fa-angle-right" aria-hidden="true"></i> Chỉnh sửa Sản phẩm</b></h3>
+    <h3 class="card-title"><b>Quản lý Sản phẩm <i class="fa fa-angle-right" aria-hidden="true"></i> Chỉnh sửa Sản phẩm</b></h3>
 
     <div class="card-tools">
       <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -38,7 +38,7 @@
           <div class="card card-outline card-info">
             <div class="card-body pad" style="padding: 0px !important ; max-height: 200px !important ;overflow: auto; "  >
               <div class="mb-3">
-                <textarea name="description" type="text" id="inputDescription" class="textarea" placeholder="Place some text here"
+                <textarea name="description" type="text" id="inputDescription" class="textarea" placeholder="Nhập nội dung tại đây"
                           style="width: 100%; font-size: 14px; line-height: 18px; border: 1px solid #dddddd;  max-height: 200px !important ;">{{ $db->description }}</textarea>
               </div>
             </div>

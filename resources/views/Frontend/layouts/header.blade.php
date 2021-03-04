@@ -7,7 +7,7 @@
     <div class="header_search">
         <form action="{{ route('search') }}" class="search" action="/tim-kiem" method="post">
             @csrf
-            <input style="-webkit-appearance: none;border: 0;font-family: inherit;padding: 0;font-size: 16px;font-weight: 500;background: none;border-radius: 0;color: #223254;" id="search" name="search" type="text"  placeholder="Bạn tìm kiếm điều gì..." /> <button style="border:none; background:transparent;"><i style=" margin-left: 5px; font-size: 19px; border:none;" class="fa fa-search" aria-hidden="true"></i></button>
+            <input style="-webkit-appearance: none; outline: none;border: 0;font-family: inherit;padding: 0;font-size: 16px;font-weight: 500;background: none;border-radius: 0;color: #223254;" id="search" name="search" type="text"  placeholder="Bạn tìm kiếm điều gì..." /> <button style="border:none; background:transparent;"><i style=" margin-left: 5px; font-size: 19px; border:none;" class="fa fa-search" aria-hidden="true"></i></button>
         </form>
     </div>
     <div class="header_menu">	
@@ -100,18 +100,52 @@
     <div class="header_log">
         @if (Auth::check())
         <div class="user-name" style="margin-left: -80px;">
-                <i style="font-size: 20px; color: #ffa500;" class="fa fa-user-circle" aria-hidden="true"></i>
+                <div class="image_avatar" >
+                    @if (is_null(Auth::user()->avata))
+                    <img style="width: 20px; height: 20px; border-radius: 50%;" src="{{ asset('sources/img/userinfo/avatar.jpg') }}">
+                    @else
+                    <img style="width: 20px; height: 20px; border-radius: 50%;" src="{{ asset(Auth::user()->avata) }}">
+                    @endif
+                </div>
                 <a href="{{ route('userinfo') }}"><p style="margin-left:4px; color: #d88821">{{ Auth::user()->name }}</p> </a>
            
         </div>
-        <div class="icon_cart" style="margin-left: 30px;" title="Cart">
-            <a href="#" title="Giỏ hàng" >
-                <i style="color: black" class="fa fa-cart-plus" aria-hidden="true"></i>
-                {{--  <span>6</span>  --}}
-            </a>
+        <div class="dropdown-cart" style="z-index: 9">
+            <a href="{{ route('cart') }}" title="">
+                <i style="color: black;" class="fa fa-cart-plus" aria-hidden="true"></i>
+                {{-- <span style=" color: red; margin-left: 5px;font-size: 19px; font-weight: 600">(2)</span> --}}
+                <div class="dropdown-cart-detail" >
+                    {{-- <ul>
+                        <li>
+                            <div class="tt">
+                                <span>Có <b>2</b> sản phẩm trong giỏ hàng</span>
+                            </div>  
+                        </li>
+                        <li style="margin-top: 10px">
+                            <img style="width: 70px; height: 70px;" src="front">
+                            <div style="margin-left: 5px" class="item">
+                                <span>Sản phẩm ABC</span> 
+                                <br>
+                                <span>1  *  300.000 VNĐ</span>
+                            </div>
+                            <i style="color: red; font-size: 14px" class="fa fa-times" aria-hidden="true"></i>
+                        <li>
+                            <div style="margin-left: 25px;margin-top: 10px; display: flex; font-weight: 600" class="tong">
+                                <span> Tổng tiền : </span>
+                                <p style="color: blue; font-size: 16px">300.000 VNĐ </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div style="background: #d88821; width: 100px; height: 40px;border-radius: 5px;margin-left: 50px;" class="checkout">
+                                <a style="font-weight: 600; text-align: center;padding-top: 10px" href="{{ route('cart') }}"><span style="color: white; margin-left: 9px;">Thanh toán</span></a>
+                            </div>
+                        </li>
+                    </ul> --}}
+                </div>
+            </a>	
         </div>	
         <div class="icon_logout" style="margin-left: 30px;">
-            <a href="{{ route('logout') }}" title="Logout">
+            <a href="{{ route('logout') }}" title="Đăng xuất">
                 <i style="color: black" class="fa fa-sign-out" aria-hidden="true"></i>
             </a>
         </div>   

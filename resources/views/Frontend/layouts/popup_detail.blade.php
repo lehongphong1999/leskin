@@ -13,6 +13,13 @@
         }
     @endforeach
 
+    @foreach ($data_products as $item)
+        .center_popup_detail #show_service{{ $item->id }}:checked ~ .container_popup_detail{
+            display: flex;
+            z-index: 999;
+        }
+    @endforeach
+
     @foreach ($datanews as $item)
         .center_popup_detail #show_detailnews{{ $item->id }}:checked ~ .container_popup_detail{
             display: flex;
@@ -45,18 +52,53 @@
                     <div class="detail_content" style="overflow: auto; height: 350px;">
                         {!! html_entity_decode($item->description) !!}
                     </div>
-                    <div class="option">
-                        <div class="quantity">
-                            <span> Số lượng :</span>
-                            <div class="value_buy">
-                                <input type="number" title="" placeholder="1">
+                    <form method="POST" action="{{ route('addcart') }}">
+                    @csrf
+                        <div class="option">
+                            <div class="quantity">
+                                <span> Số lượng :</span>
+                                <div class="value_buy">
+                                    <input type="text" name="id" style="display: none; outline: none" value="{{ $item->id }}">
+                                    <input type="number" name="quantity" title="" value="1">
+                                </div>
                             </div>
-                        </div>
-                        <div class="buy_now">
-                            <a href="#"> Mua ngay <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                            <div class="buy_now">
+                                <a href="#"> Mua ngay <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="add_cart">
+                                <button style="background-color: transparent;border: none"><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+                            </div>
+                        </div>    
+                    </form>
+                </div>
+            </div>
+        </div>
+@endforeach
+
+@foreach ($data_products as $item)
+        <div class="center_popup_detail">
+            <input type="checkbox" id="show_service{{ $item->id }}">
+            <div class="container_popup_detail">
+                <label for="show_service{{ $item->id }}" class="close-btn fa fa-times" title="close"></label>
+                <div class="img">
+                    <img  style="width: 400px ; height: 400px;" src="{{ $item->link_image }}">
+                </div>
+                <div class="content">
+                    <div class="title">
+                        <span>{{ $item->product_name }}</span>
+                    </div>
+                    <div class="price">
+                        <span>{{ number_format($item->price) }} VND</span>
+                    </div>
+                    <div class="detail_content" style="overflow: auto; height: 350px;">
+                        {!! html_entity_decode($item->description) !!}
+                    </div>
+                    <div class="option" >
+                        <div class="buy_now" style="margin-left: 300px">
+                            <a href="{{ route('bookk', ['id'=>$item->id]) }}"> Đặt lịch ngay <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                         </div>
                         <div class="add_cart">
-                            <a style="color: white" href="#"><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+                            <a href="#"><i style="color: white" class="fa fa-star" aria-hidden="true"></i></a>
                         </div>
                     </div>    
                 </div>
@@ -128,12 +170,6 @@
                 {!! html_entity_decode($item->content) !!}
             </div> 
             <div class="option" >
-                {{--  <div class="quantity"style="padding-left: 430px">
-                    <span> Ngày :</span>
-                    <div class="note">
-                        <input type="datetime-local" title="" >
-                    </div>
-                </div>  --}}
                 <div class="buy_now" style="margin-left: 700px">
                     <a href="{{ route('book', ['id'=>$item->id]) }}"> Đặt lịch ngay <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                 </div>

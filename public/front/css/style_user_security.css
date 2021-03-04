@@ -32,13 +32,12 @@
 	display: flex;
 }
 .title4 {
-	margin-left: 40px;
+	margin-left: 10px;
 	font-weight: 550;
 	padding-top: 1px;
 }
-.image_avatar{
-	width: 75px;
-	height: 75px;
+.image_avatar img{
+	border-radius: 50%;
 }
 
 .discout{

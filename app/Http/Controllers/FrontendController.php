@@ -13,6 +13,9 @@ use App\users;
 use App\news_sales;
 use App\contacts;
 use App\book_appointments;
+use App\cart;
+use App\orders;
+use App\detail_orders;
 
 class FrontendController extends Controller
 {
@@ -62,6 +65,13 @@ class FrontendController extends Controller
             return redirect()->route('index');
         }
     }
+
+    public function bookk(){
+        $id = $_GET['id'];
+        $product = products::where('id',$id)->get();
+        return view('Frontend.bookk',compact('product'));
+    }
+
     public function postcontact(Request $request){
         $contact = new contacts();
         $contact->name = $request->name;
@@ -116,7 +126,106 @@ class FrontendController extends Controller
         // return redirect()->back();
     }
     public function userhistory(){
-        return view('Frontend.layouts_user.user_history');
+        $history = orders::where('id_user',Auth::user()->id)->get();
+        return view('Frontend.layouts_user.user_history',compact('history'));
+        // return view('Frontend.layouts_user.user_history');
+    }
+
+    public function detailorder(){
+        $id = $_GET['id'];
+        $order = orders::find($id);
+        $detail_order = detail_orders::where('id_order',$id)->get();
+        return view('Frontend.layouts_user.detail_order',compact('order','detail_order'));
+    }
+
+    public function addcart(Request $request){
+        if(Auth::check()){
+            $check = 0;
+            $allcart = cart::where('id_user',Auth::user()->id)->get();
+            foreach($allcart as $item){
+                if($item->id_product == $request->id){
+                    $check = 1;
+                    break;
+                }
+            }
+            if($check==0){
+                $cart = new cart();
+                $cart->id_user = Auth::user()->id;
+                $cart->id_product = $request->id;
+                $cart->quantity = $request->quantity;
+                $cart->save();
+            }else{
+                $cart = cart::where('id_user',Auth::user()->id)->where('id_product',$request->id)->get();
+                $newquantity = $cart[0]->quantity + $request->quantity;
+                $update = cart::where('id_user',Auth::user()->id)->where('id_product',$request->id)->update([
+                    'quantity' => $newquantity
+                ]);
+            }
+            return redirect()->back();
+        }else{
+            return redirect()->route('index');
+        }
+    }
+
+    public function cart(){
+        $allcart = cart::where('id_user',Auth::user()->id)->get();
+        return view('Frontend.layouts_user.cart',compact('allcart'));
+    }
+    public function deleteitemcart(){
+        if(Auth::check()){
+            if (isset($_GET['id'])&&!empty($_GET['id'])) {  
+                $db = cart::where('id_product',$_GET['id'])->where('id_user',Auth::user()->id)->delete();
+                return redirect()->route('cart');
+            }
+            else {  
+                return redirect()->route('index');
+            } 
+        }else{
+            return redirect()->route('index');
+        }   
+    }
+    public function checkout(){
+        $total = 0;
+        $allcart = cart::where('id_user',Auth::user()->id)->get();
+        foreach($allcart as $item){
+            $total = $total + ($item->product->price * $item->quantity);
+        }
+        return view('Frontend.layouts_user.checkout',compact('total'));
+    }
+
+    public function postcheckout(Request $request){
+        $order = new orders();
+        $max = orders::max('id'); 
+        $allcart = cart::where('id_user',Auth::user()->id)->get();
+        $order->id= $max + 1;
+        $order->id_user = Auth::user()->id;
+        $order->total_money = $request->total;
+        $order->method_ship = $request->ship;
+        $order->pay = $request->pay;
+        $order->name = $request->name;
+        $order->phone = $request->phone;
+        $order->email = $request->email;
+        $order->address = $request->address;
+        $order->note = $request->note;
+        $order->save();
+
+        foreach($allcart as $item){
+            $detail = new detail_orders();
+            $detail->id_order = $max + 1;
+            $detail->id_product = $item->id_product;
+            $detail->quantity = $item->quantity;
+            $detail->save();
+        }
+        
+        $madon = $max + 1;
+        $name = $request->name;
+        $address = $request->address;
+        $delete = cart::where('id_user',Auth::user()->id)->delete();
+        return view('Frontend.layouts_user.finish_order',compact('madon','name','address','allcart'));
+    }
+
+    public function finish(){
+        return view('Frontend.layouts_user.finish_order');
     }
 
     public function search(Request $request){

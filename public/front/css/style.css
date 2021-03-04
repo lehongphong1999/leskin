@@ -8,6 +8,9 @@
 a{
 	text-decoration: none;
 }
+html{
+	scroll-behavior: smooth;
+}
 .header {
 	background-image: url('../image/bgheader.png');
 	background-repeat: no-repeat;
@@ -16,7 +19,8 @@ a{
 	width: 100%;
 	display: flex ;
 	border-bottom: orange solid 5px;
-	
+	/* position: fixed;
+	z-index: 90; */
 }
 .header_logo{
 	margin-top: 10px;
@@ -131,6 +135,69 @@ a{
   .dropdown .dropdown-item2 ul li:last-child{
 	border-bottom: none;
   }
+  .dropdown-cart {
+	position: relative;
+	display: inline-block;
+	margin-left: 35px;
+	font-size: 25px;
+	
+  }
+  .dropdown-cart span{
+	  color: black;
+	  margin-left: 5px;
+	  font-size: 15px;
+  }
+  .dropdown-cart ul li:hover{
+	  text-decoration: none;
+  }
+  .dropdown-cart-detail {
+	display: none !important;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width:212px;
+	margin-left: -160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+	padding: 0px 0px 0px 0px !important;
+	border-radius: 10px;
+  }
+  .dropdown-cart-detail ul{
+	display: inline-block;
+	text-decoration: none;
+	list-style: none;
+  }
+  .dropdown-cart:hover .dropdown-cart-detail{
+	display: block !important;
+	padding-left: 0px !important;
+	background: white;
+	transition: .3s;
+  } 
+.dropdown-cart-detail ul li {
+	text-align: left;
+	padding-left: 5px !important;
+	border-bottom: orange dashed 1px ;
+	min-height: 30px;
+	text-decoration: none;
+	display: flex;
+	margin-bottom: 10px;
+  }
+.dropdown-cart-detail ul li:last-child{
+	border-bottom: none;
+  }
+.dropdown-cart-detail ul li a {
+	  font-size: 15px;
+	  text-decoration: none;
+  }
+.dropdown-cart-detail ul li:hover span{
+	text-decoration: none;
+}
+.dropdown-cart-detail ul li i:hover{
+	font-size: 18px;
+}
+.tt {
+	color: white !important;
+	background: #3498db;
+} 
 ul#ul_log {
     margin-top: 10px;
 }
@@ -159,23 +226,27 @@ ul#ul_log {
 	font-size: 25px;
 	color: black;
 }
-.header_log .icon_logout:hover{
-	color: #d88821 ;
+.header_log .icon_logout a:hover i{
+	color: #d88821 !important;
 }
 .header_log .icon_cart{
 	height: 25px;
 	width: 25px;
 	font-size: 25px;
-	display: flex;
 	color: black;
+	position: relative;
+	display: inline-block;
 }
 .header_log .icon_cart span{
 	font-size: 12px !important;
 	color: red;
 	font-weight: 600;
 }
-.header_log .icon_cart :hover{
-	color: #d88821 ;
+.header_log .icon_cart a:hover i{
+	color: #d88821 !important;
+}
+.header_menu :last-child(){
+	font-size: 20px;
 }
 .user-name {
 	width: 100px;
@@ -189,9 +260,11 @@ ul#ul_log {
 	padding: 5px 4px 4px 4px;
 	font-weight: 600;
 }
-.user-name a p:hover{
+.user-name a:hover {
 	text-decoration: none;
-	text-decoration-line: none;
+}
+.user-name a:hover p{
+	color: #3498db !important;
 }
 
 /* start popup login*/
@@ -255,10 +328,12 @@ ul#ul_log {
 	font-size: 17px;
 	border: 1px solid silver;
 	border-radius: 5px;
+	outline: none;
   }
   form .data input:focus{
 	border-color: #3498db;
 	border-bottom-width: 2px;
+	outline: none;
   }
   form .forgot-pass{
 	margin-top: 15px;
@@ -276,6 +351,7 @@ ul#ul_log {
 	width: 100%;
 	position: relative;
 	overflow: hidden;
+	outline: none;
   }
   form .btn .inner{
 	height: 100%;
@@ -286,9 +362,11 @@ ul#ul_log {
 	background: -webkit-linear-gradient(right, #56d8e4, #9f01ea, #56d8e4, #9f01ea);
 	transition: all 0.4s;
 	border-radius: 5px;
+	outline: none;
   }
   form .btn:hover .inner{
 	left: 0;
+	outline: none;
   }
   form .btn button{
 	height: 100%;
@@ -302,7 +380,7 @@ ul#ul_log {
 	letter-spacing: 3px;
 	cursor: pointer;
 	padding-top: 7px;
-	
+	outline: none;
   }
   form .signup-link{
 	text-align: center;
@@ -416,6 +494,7 @@ ul#ul_log {
 	letter-spacing: 3px;
 	cursor: pointer;
 	padding-top: 7px;
+	outline: none;
   }
   form .signin-link{
 	  margin-top: 10px;
@@ -502,6 +581,7 @@ ul#ul_log {
 	width: 100%;
 	position: relative;
 	overflow: hidden;
+	outline: none;
   }
   form .btn .inner{
 	height: 100%;
@@ -512,6 +592,7 @@ ul#ul_log {
 	background: -webkit-linear-gradient(right, #56d8e4, #9f01ea, #56d8e4, #9f01ea);
 	transition: all 0.4s;
 	border-radius: 5px;
+	outline: none;
   }
   form .btn:hover .inner{
 	left: 0;

@@ -10,14 +10,27 @@ use App\intros;
 use App\coupons;
 use App\news_sales;
 use App\book_appointments;
+use App\users;
+use App\orders;
+use App\permissions;
+use App\role_permission;
+use App\role;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    // View Index Dash Board
+// View Index Dash Board
     public function indexdashboard(){
-        return view('Admin.Dashboard.index');
+        $db = orders::all();
+        $dbuser = users::all();
+        return view('Admin.Dashboard.index',compact('db','dbuser'));
     }
+//Controller Info user
+    //View Index Info user
+    // public function indexinfo(){
+    //     return view('Admin.Infouser.info');
+    // }
+    
 //Controller Category
     // View Index Category
     public function indexcategory(){
@@ -128,6 +141,58 @@ class AdminController extends Controller
         else {    
         }    
     }
+    //Controller Service
+    //View Service
+    public function  indexservice(){
+        $db = products::paginate(10);
+        return view('Admin.Service.index',compact('db'));
+    }
+    //View Add Service
+    public function addservice(){
+        return view('Admin.Service.add');
+    }
+    //View Post data add Service
+    public function postaddservice (Request $request){
+        $db = new products();
+        $db->product_name = $request->product_name;
+        $db->price = $request->price;
+        $db->sale_percent = $request->sale_percent;
+        $db->description = $request->description;
+        $db->link_image = $request->link_image;
+        $db->status = $request->status;
+        $db->category_large_id = $request->category_large_id;
+        $db->category_small_id = $request->category_small_id;
+        $db->save();
+        return redirect()->route('indexservice');
+    }
+    //View Edit Service
+    public function editservice(){
+        $id = $_GET['id']; 
+        $db = products::find($id);
+        return view('Admin.Service.edit',compact('db'));
+    }
+    //View Post Service
+    public function posteditservice(Request $request){
+        $db = products::where('id',$request->id)->update([
+            'product_name' => $request->product_name,
+            'price' => $request->price,
+            'sale_percent' => $request->sale_percent,
+            'description' => $request->description,
+            'link_image' => $request->link_image,
+            'status' => $request->status,
+            'category_large_id' => $request->category_large_id,
+            'category_small_id' => $request->category_small_id,
+        ]);
+        return redirect()->route('indexservice');
+    }
+    public function deleteservice(){
+        if (isset($_GET['id'])&&!empty($_GET['id'])) {
+            $db = products::find($_GET['id'])->delete();
+            return redirect()->route('indexservice');
+        }
+        else {    
+        }    
+    }
 //Controller Banner
     //View Banner
     public function indexbanner(){
@@ -179,15 +244,12 @@ class AdminController extends Controller
         $db = contacts::paginate(20);
         return view('Admin.contact.index',compact('db'));
     }    
-    public function sendcontact(){
-        return view('Admin.contact.send');
-    }
-    public function readmailcontact(){
+    public function readcontact(){
         $id = $_GET['id'];
         $db = contacts::find($id);
         return view('Admin.contact.readmail',compact('db'));
     }
-    public function deletemail(){
+    public function deletcontact(){
         if (isset($_GET['id'])&&!empty($_GET['id'])) {
             $db = contacts::find($_GET['id'])->delete();
             return redirect()->route('indexcontact');
@@ -404,11 +466,156 @@ class AdminController extends Controller
         }    
     }
 
-
+//Controller User_Role
+    //View Index User 
+    public function indexuser(){
+        $db = users::paginate(10);
+        return view('Admin.User.index',compact('db'));
+    }
+    //View Add User
+    public function adduser(){
+        $permissions = permissions::all();
+        return view('Admin.User.add',compact('permissions'));
+    }
+    //View Post data Add User
+    public function postadduser(Request $request){
+        $db = new user();
+        $db->name = $request->name;
+        $db->mail = $request->mail;
+        $db->phone = $request->phone;
+        $db->description = $request->description;
+        $db->save();
+        return redirect()->route('indexuser');
+    }
+    //View Edit User
+    public function edituser(){
+        $id = $_GET['id']; 
+        $db = users::find($id);  // Search data news follow id 
+        $permissions = permissions::all();
+        return view('Admin.User.edit',compact('db','permissions'));  
+    }
+//Controller Role
+    //View Index Role
+    public function indexrole(){
+        $db = role::all();
+        return view('Admin.Role.index',compact('db'));
+    }
+    //View Add Role
+    public function addrole(){
+        $permissions = permissions::all();
+        return view('Admin.Role.add',compact('permissions'));
+    }
+    //View Post add Role
+    public function postaddrole(Request $request){
+        $db = new role_permission();
+        $db->role_id = $request->role_id;
+        $db->permission_id = $request->permission_id;
+        $db->save();
+        return redirect()->route('indexrole');
+    }    
+    //View edit Role
+    public function editrole(){
+        $id = $_GET['id']; 
+        $db = role::find($id);  // Search data news follow id 
+        $role_permission = role_permission::find($role_id = $id);
+        $permissions = permissions::all();
+        return view('Admin.Role.edit',compact('db','permissions','role_permission'));
+    }
+    public function posteditrole(Request $request){
+        // $db = role_permission::where('id',$request->id)->update([
+        //     'code_coupon' => $request->code_coupon,
+        //     'percent' => $request->percent,
+        //     'quantity' => $request->quantity,
+        //     'used' => $request->used,
+        //     'status' => $request->status,
+        // ]);
+        return redirect()->route('indexrole');
+    }
+    // Delete Role
+    public function deleterole(){
+        if (isset($_GET['id'])&&!empty($_GET['id'])) { // Check id empty 
+            $db = role::where('id',$_GET['id'])->delete();
+            return redirect()->route('indexrole');
+        }
+        else {    
+        }    
+    }
+//Controller Revenue
+    //View Index Revenue Day
+    public function indexrevenue(){
+        $db = orders::all();
+        return view('Admin.Revenue.index',compact('db'));
+    }
+    //View Index Revenue Month
+    public function index2revenue(){
+        $db = orders::all();
+        return view('Admin.Revenue.index2',compact('db'));
+    }
+    //View Show detail Revenue Day
+    public function showdetailday(){
+        $id = $_GET['id']; 
+        $order = orders::find($id);  
+        $detail_order = detail_orders::where('id_order',$id)->get();
+        // $dbb = orders::join('detail_orders','detail_orders.id_order','=','orders.id')->get();
+        // $dbbb = products::join('detail_orders','detail_orders.id_product','=','products.id')->get();
+        return view('Admin.Revenue.detail',compact('order','detail_order')); 
+        
+    }
+    // Delete Revenue
+    public function deleterevenue(){
+        if (isset($_GET['id'])&&!empty($_GET['id'])) { // Check id empty 
+            $db = orders::where('id',$_GET['id'])->delete();
+            return redirect()->route('indexrevenue');
+        }
+        else {    
+        }    
+    }
+//Controller Order
+    //View Index Order
+    public function indexorder(){
+        $db = orders::all();
+        return view('Admin.Order.index',compact('db'));
+    }
+    
+    //View Show detail Order
+    public function showdetailorder(){
+        $id = $_GET['id']; 
+        $order = orders::find($id);  
+        $detail_order = detail_orders::where('id_order',$id)->get();
+        return view('Admin.Order.detail',compact('order','detail_order')); 
+     
+        
+    }
+    // Delete Order
+    public function deleteorder(){
+        if (isset($_GET['id'])&&!empty($_GET['id'])) { // Check id empty 
+            $db = orders::where('id',$_GET['id'])->delete();
+            return redirect()->route('indexbook');
+        }
+        else {    
+        }    
+    }
+//Controller Book spa
+    //View Index Book spa 
     public function indexbook(){
         $db = book_appointments::join('users','users.id','=','book_appointments.id_user')->get();
-        return view('Admin.Book.index',compact('db'));
+        $dbb = book_appointments::all();
+        return view('Admin.Book.index',compact('db','dbb'));
     }
+    //View Edit Book spa
+    public function editbook(){
+        $id = $_GET['id']; 
+        $db = book_appointments::find($id);
+        return view('Admin.Book.edit',compact('db'));
+    }
+    //View Post 
+    public function posteditbook(Request $request){
+        $db = book_appointments::where('id',$request->id)->update([
+            'status_reply' => $request->status_reply,
+        ]);
+        return redirect()->route('indexbook');
+    }
+    // Delete Book spa
     public function deletebook(){
         if (isset($_GET['id'])&&!empty($_GET['id'])) { // Check id empty 
             $db = book_appointments::where('id',$_GET['id'])->delete();

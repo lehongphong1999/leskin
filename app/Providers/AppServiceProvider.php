@@ -7,6 +7,7 @@ use App\categories;
 use App\products;
 use App\news;
 use App\news_sales;
+use App\cart;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -34,6 +35,7 @@ class AppServiceProvider extends ServiceProvider
                 'data_products' => products::all(),
                 'datanews' => news::limit(4)->get(),
                 'data_newssale' => news_sales::all(),
+                // 'data_cart'=> cart::all(),
             ]);
         });
     }
