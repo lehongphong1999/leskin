@@ -2,12 +2,12 @@
 
 @section('content')
 <div class="card-header">
-    <h3 class="card-title"><b>Admin <i class="fa fa-angle-right" aria-hidden="true"></i> Thêm Sản phẩm</b></h3>
+    <h3 class="card-title"><b>Quản lý Sản phẩm <i class="fa fa-angle-right" aria-hidden="true"></i> Thêm Sản phẩm</b></h3>
 
-    <div class="card-tools">
+    {{-- <div class="card-tools">
       <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
         <i class="fas fa-minus"></i></button>
-    </div>
+    </div> --}}
   </div>
   <form action="{{ route('postaddproduct') }}" method="POST" >
     @csrf

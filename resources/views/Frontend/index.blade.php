@@ -193,13 +193,13 @@
 </div>
 <div class="brand-banner2">
     <div class="title-step">
-        <h2>5 BƯỚC ĐỂ TRẢI NGHIỆM DỊCH VỤN TẠI LESKIN</h2>
+        <h2>5 BƯỚC ĐỂ TRẢI NGHIỆM DỊCH VỤN TẠI BEAUTY SPA</h2>
     </div>
     <div class="fivestep">
     <div class="step">
         <p class="number">01</p>
         <br>
-        <p class="text2">Cài app Leskin hoặc truy cập Website Leskin</p>
+        <p class="text2">Cài app Beauty Spa hoặc truy cập Website Beauty Spa</p>
     </div>
     <div class="step">
         <p class="number">02</p>
@@ -209,12 +209,12 @@
     <div class="step">
         <p class="number">03</p>
         <br>
-        <p class="text2">Được tư vấn và giải đáp thắc mắc từ chuyên gia Leskin</p>
+        <p class="text2">Được tư vấn và giải đáp thắc mắc từ chuyên gia Beauty Spa</p>
     </div>
     <div class="step">
         <p class="number">04</p>
         <br>
-        <p class="text2">Đặt chỗ tại Spa thuộc hệ thống Leskin</p>
+        <p class="text2">Đặt chỗ tại Spa thuộc hệ thống Beauty Spa</p>
     </div>
     <div class="step">
         <p class="number">05</p>
@@ -225,7 +225,7 @@
 </div>
 <div class="brand-banner3">
     <div class="title-3">
-        <h3>VÌ SAO CHỌN LESKIN ?</h3>
+        <h3>VÌ SAO CHỌN BEAUTY SPA ?</h3>
     </div>
     <div class="br-bn-3-header">
         <div class="img3">

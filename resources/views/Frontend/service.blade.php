@@ -35,7 +35,7 @@
                         <span class="new">{{ number_format($item->price) }} VND</span>
                     </div>
                     <div class="btn-more">
-                        <label for="show_detail{{ $item->id }}" class="show-btndetail"> Xem thêm <i class="fa fa-angle-right" aria-hidden="true"></i></label>
+                        <label for="show_service{{ $item->id }}" class="show-btndetail"> Xem thêm <i class="fa fa-angle-right" aria-hidden="true"></i></label>
                     </div>
                 </div>
             @endif

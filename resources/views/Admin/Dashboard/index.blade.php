@@ -6,8 +6,19 @@
       <!-- small box -->
       <div class="small-box bg-info">
         <div class="inner">
-          <h3>150</h3>
-          <p>Đơn hàng Mới</p>
+          @php
+            $totalorder = 0;   
+          @endphp
+          @if (!is_null($db))
+            @foreach ($db as $key => $item)
+              @php
+              $key = $key + 1;
+              @endphp
+            @endforeach
+          @endif
+          <h3>{{ $key }}</h3>
+
+          <p>Đơn hàng</p>
         </div>
         <div class="icon">
           <i class="ion ion-bag"></i>
@@ -20,14 +31,23 @@
       <!-- small box -->
       <div class="small-box bg-success">
         <div class="inner">
-          <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-          <p>Mức độ tăng trưởng</p>
+          @php
+            $totalcus = 0;   
+          @endphp
+          @if (!is_null($dbuser))
+            @foreach ($dbuser as $keycus => $item )
+              @php
+              $keycus = $keycus + 1;
+              @endphp
+            @endforeach
+          @endif
+          <h3>{{ $keycus }}</h3>
+          <p>Khách hàng </p>
         </div>
         <div class="icon">
           <i class="ion ion-stats-bars"></i>
         </div>
-        <a href="#" class="small-box-footer">Thông tin thêm <i class="fas fa-arrow-circle-right"></i></a>
+        <a href="{{ route('indexuser') }}" class="small-box-footer">Thông tin thêm <i class="fas fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->
@@ -35,14 +55,24 @@
       <!-- small box -->
       <div class="small-box bg-warning">
         <div class="inner">
-          <h3>50.000.000 $</h3>
+          @php
+            $total = 0;   
+          @endphp
+          @if (!is_null($db))
+            @foreach ($db as $item)
+              @php
+                $total = $total + $item->total_money;
+              @endphp
+            @endforeach
+          @endif
+          <h3>{{ number_format($total) }} VNĐ</h3>
 
-          <p>Tổng tiền tháng</p>
+          <p>Tổng doanh thu</p>
         </div>
         <div class="icon">
           <i class="ion ion-person-add"></i>
         </div>
-        <a href="#" class="small-box-footer">Thông tin thêm<i class="fas fa-arrow-circle-right"></i></a>
+        <a href="{{ route('indexrevenue') }}" class="small-box-footer">Thông tin thêm<i class="fas fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->
@@ -61,5 +91,10 @@
       </div>
     </div>
     <!-- ./col -->
+    <div class="content" style="text-align: center">
+      <div class="title m-b-md" style="font-size: 74px; margin-left: 125px;margin-top: 40px">
+        Quản lý Website của bạn !!!
+      </div>
+    </div>
   </div>
 @endsection

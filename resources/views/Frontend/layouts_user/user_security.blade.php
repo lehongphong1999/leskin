@@ -18,24 +18,24 @@
                 <div class="form-group row">
                   <label for="inputpassold3" class="col-sm-2 col-form-label">Mật khẩu hiện tại</label>
                   <div class="col-sm-10">
-                    <input type="pass_old" class="form-control" id="inputpassold3" placeholder="" name="passold" required>
+                    <input type="password" class="form-control" id="inputpassold3" placeholder="" name="passold" required>
                   </div>
                 </div>
                 <div class="form-group row">
                   <label for="inputpassnew3" class="col-sm-2 col-form-label">Mật khẩu mới</label>
                   <div class="col-sm-10">
-                    <input type="pass_new" class="form-control" id="inputpassnew3" placeholder="" name="passnew" required>
+                    <input type="password" class="form-control" id="inputpassnew3" placeholder="" name="passnew" required>
                   </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputpassnew23" class="col-sm-2 col-form-label">Xác nhận mật khẩu</label>
                     <div class="col-sm-10">
-                      <input type="pass_new2" class="form-control" id="inputpassnew23" placeholder="" name="repassnew" required>
+                      <input type="password" class="form-control" id="inputpassnew23" placeholder="" name="repassnew" required>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-10">
-                        <button type="CẬP NHẬT" class="btn btn-primary" style=" margin-left: 100px; background: rgb(231 154 12); border: white; font-size: 14px; font-weight: 600;">CẬP NHẬT</button>
+                        <button onclick="check_repass()" type="submit" class="btn btn-primary" style=" margin-left: 100px; background: rgb(231 154 12); border: white; font-size: 14px; font-weight: 600;">CẬP NHẬT</button>
                     </div>
                 </div>
                 <div class="form-group row" style="margin-top: 30px; margin-left: 84px;">

@@ -6,22 +6,22 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Hộp thư</h1>
+          <h1>Liên hệ</h1>
         </div>
-        <div class="col-sm-6">
+        {{-- <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Hộp thư</li>
+            <li class="breadcrumb-item active">Thư</li>
           </ol>
-        </div>
+        </div> --}}
       </div>
     </div><!-- /.container-fluid -->
   </section>
 <div class="row" style="margin-left: 10px">
-    <div class="col-md-3">
+    <div class="col-md-2">
       <a href="{{ route('indexcontact') }}" class="btn btn-primary btn-block mb-3" style="border-radius: 25rem"><i class="fa fa-arrow-left" aria-hidden="true"></i>  Hộp thư</a>
 
-      <div class="card" style="border-radius: 10px">
+      {{-- <div class="card" style="border-radius: 10px">
         <div class="card-header" >
           <h3 class="card-title"><b>Chức năng</b></h3>
 
@@ -61,12 +61,12 @@
           </ul>
         </div>
         <!-- /.card-body -->
-      </div>
+      </div> --}}
       <!-- /.card -->
     </div>
     <!-- /.col -->
     <div class="col-md-9">
-        <div class="card card-primary card-outline" style="min-height: 500px">
+        <div class="card card-primary card-outline" style="min-height: 400px">
           <div class="card-header">
             <h3 class="card-title"><b>Nội dung</b></h3>
           </div>
@@ -93,11 +93,8 @@
           <!-- /.card-footer -->
           <div class="card-footer">
             <div class="float-right">
-              <button type="button" class="btn btn-default"><i class="fas fa-reply"></i> Trả lời</button>
-              {{-- <button type="button" class="btn btn-default"><i class="fas fa-share"></i> Chuyển tiếp</button> --}}
+              <button type="button" class="btn btn-default"><a href="https://mail.google.com/mail/u/0/#inbox?compose=new"><i class="fas fa-reply"></i> Trả lời</a></button>
             </div>
-            <button type="button" class="btn btn-default"><i class="far fa-trash-alt"></i> Xóa</button>
-            {{-- <button type="button" class="btn btn-default"><i class="fas fa-print"></i> In</button> --}}
           </div>
           <!-- /.card-footer -->
         </div>

@@ -46,6 +46,10 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($exception instanceof \Illuminate\Auth\Access\AuthorizationException) {
+
+            return redirect()->route('indexdashboard')->withSuccess(['You are not allowed to access that page']);
+        }
         return parent::render($request, $exception);
     }
 }

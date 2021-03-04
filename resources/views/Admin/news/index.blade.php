@@ -6,19 +6,10 @@
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title"><b>Admin <i class="fa fa-angle-right" aria-hidden="true"></i> Tin tức</b></h3>
-          <div class="card-tools">
-            <div class="input-group input-group-sm" style="width: 150px;">
-              <input type="text" name="table_search" class="form-control float-right" placeholder="Search ..." style="border-radius: 25rem;">
-
-              <div class="input-group-append">
-                <button style="border-radius: 25rem; margin-left: 10px" type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
-              </div>
-            </div>
-          </div>
+          <h3 class="card-title"><b>Quản lý Tin tức </b></h3>
         </div>
         <div class="card-header">
-          <button type="submit" style="height: 30px ;width: 80px;;color: #fff;background-color:  rgb(124, 230, 124); border:none ; border-radius: 25rem; margin-left: 918px"><a href="{{ route('addnews') }}"><i class="fa fa-plus" aria-hidden="true" style="margin-right: 5px"></i><b>Add</b></a></button>
+          <button type="submit" style="height: 30px ;width: 80px;;color: #fff;background-color:  rgb(124, 230, 124); border:none ; border-radius: 25rem; "><a href="{{ route('addnews') }}"><i class="fa fa-plus" aria-hidden="true" style="margin-right: 5px"></i><b>Add</b></a></button>
         </div>
         <!-- /.card-header -->
         <div class="card-body table-responsive p-0" >

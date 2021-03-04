@@ -106,7 +106,7 @@
                 <br> 
                 <span style="margin-top: 35px; margin-left: 50px; font-weight: 450; color: #6b6464;">Định dạng : .JPEG; .PNG</span>
                 <br>
-                <button type="luu" class="btn btn-primary" type="submit" style=" margin-left: 113px;margin-top: 30px;  background: rgb(231 154 12) ; border: white; font-size: 14px; font-weight: 600; width: 80px; height: 35px;">LƯU</button>
+                <button class="btn btn-primary" type="submit" style=" margin-left: 113px;margin-top: 30px;  background: rgb(231 154 12) ; border: white; font-size: 14px; font-weight: 600; width: 80px; height: 35px;">LƯU</button>
             </div>
         </div>  
     </div>

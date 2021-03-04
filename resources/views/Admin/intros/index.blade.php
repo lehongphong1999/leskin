@@ -6,8 +6,8 @@
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title"><b>Admin <i class="fa fa-angle-right" aria-hidden="true"></i> Giới thiệu</b></h3>
-          <div class="card-tools">
+          <h3 class="card-title"><b>Giới thiệu <i class="fa fa-angle-right" aria-hidden="true"></i> Giới thiệu</b></h3>
+          {{-- <div class="card-tools">
             <div class="input-group input-group-sm" style="width: 150px;">
               <input type="text" name="table_search" class="form-control float-right" placeholder="Search ..." style="border-radius: 25rem;">
 
@@ -15,10 +15,10 @@
                 <button style="border-radius: 25rem; margin-left: 10px" type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
               </div>
             </div>
-          </div>
+          </div> --}}
         </div>
         <div class="card-header">
-          <button type="submit" style="height: 30px ;width: 80px;;color: #fff;background-color:  rgb(124, 230, 124); border:none ; border-radius: 25rem; margin-left: 918px"><a href="{{ route('addintro') }}"><i class="fa fa-plus" aria-hidden="true" style="margin-right: 5px"></i><b>Add</b></a></button>
+          <button type="submit" style="height: 30px ;width: 80px;;color: #fff;background-color:  rgb(124, 230, 124); border:none ; border-radius: 25rem;"><a href="{{ route('addintro') }}"><i class="fa fa-plus" aria-hidden="true" style="margin-right: 5px"></i><b>Add</b></a></button>
         </div>
         <!-- /.card-header -->
         <div class="card-body table-responsive p-0" >
@@ -27,6 +27,7 @@
               <tr>
                 <th>STT</th>
                 <th>Nội dung</th>
+                <th>Link ảnh</th>
                 <th>Ảnh</th>
                 <th>Trạng thái</th>
                 <th>Action</th>
@@ -42,6 +43,9 @@
                     <td>{{ $item->id }}</td>
                     <td>{{ str_limit($item->content,30) }}</td>
                     <td>{{ str_limit($item->file_img,20) }}</td>
+                    <td> 
+                      <img style="width: 40px ; height: 40px;" src="{{ $item->file_img }}">
+                    </td>
                     <td>
                       @if ($item->status==1)
                       Hiển thị

@@ -39,15 +39,15 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
+      {{-- <li class="nav-item d-none d-sm-inline-block">
         <a href="index3.html" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
-      </li>
+      </li> --}}
     </ul>
 
-    <!-- SEARCH FORM -->
+    {{-- <!-- SEARCH FORM -->
     <form class="form-inline ml-3">
       <div class="input-group input-group-sm">
         <input style="border-radius: 25rem; border: 1px solid white" class="form-control form-control-navbar" type="search" placeholder="Search ..." aria-label="Search">
@@ -57,17 +57,17 @@
           </button>
         </div>
       </div>
-    </form>
+    </form> --}}
   </nav>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-           style="opacity: .8">
-      <span class="brand-text font-weight-light" ><b>LesKin</b></span>
+    <a href="{{ route('index') }}" class="brand-link">
+      <img src="front/image/logo.png" alt="Logo" class="brand-image img-circle elevation-3"
+           style="background: rgb(236, 228, 228); ">
+      <span class="brand-text font-weight-light" ><b>Beauty Spa</b></span>
     </a>
 
     <!-- Sidebar -->
@@ -78,7 +78,10 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Admin</a>
+          <a href="{{ route('userinfo') }}" class="d-block" style="float: left; margin-right: 10px; margin-left: 10px">Admin</a>
+          {{--  {{ Auth::user()->name }}  --}}
+          <p style="float: left; margin-right: 10px; color: #007bff">|</p>
+          <a href="{{ route('logout') }}" title="Đăng xuất" >Đăng xuất</a>
         </div>
       </div>
 
@@ -87,14 +90,14 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          {{-- <li class="nav-item has-treeview menu-open">
-            <a href="{{ route('indexdashboard') }}" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Bảng điều khiển
+          <li class="nav-item">
+            <a href="{{ route('indexdashboard') }}" class="nav-link">
+              <i style="margin-left: 6px" class="fas fa-tachometer-alt"></i>
+              <p style="margin-left: 6px">
+                Dashboard
               </p>
             </a>
-          </li> --}}
+          </li>
           <li class="nav-item">
             <a href="{{ route('indexcategory') }}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -111,6 +114,14 @@
               </p>
             </a>
           </li>
+          {{--  <li class="nav-item has-treeview">
+            <a href="{{ route('indexservice') }}" class="nav-link">
+              <i style="margin-left: 6px" class="fa fa-cubes" aria-hidden="true"></i>
+              <p style="margin-left: 8px">
+                Quản lý Dịch vụ
+              </p>
+            </a>
+          </li>  --}}
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i style="margin-left: 7px" class="fa fa-percent" aria-hidden="true"></i>
@@ -135,11 +146,11 @@
             </ul>
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="{{ route('indexorder') }}" class="nav-link">
               <i style="margin-left: 4px" class="fa fa-shopping-cart" aria-hidden="true"></i>
               <p style="margin-left: 8px">
                 Quản lý Đơn hàng
-                <span class="badge badge-info right">6</span>
+                <span class="badge badge-info right"></span>
               </p>
             </a>
           </li>
@@ -152,16 +163,16 @@
               </p>
             </a>
           </li>
-          <li class="nav-item has-treeview">
+          {{-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i style="margin-left: 3px" class="fa fa-truck" aria-hidden="true"></i>
               <p style="margin-left: 8px" >
                 Quản lý Giao hàng
               </p>
             </a>
-          </li>
+          </li> --}}
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="{{ route('indexrevenue') }}" class="nav-link">
               <i style="margin-left: 4px" class="fa fa-money" aria-hidden="true"></i>
               <p style="margin-left: 6px">
                 Quản lý Danh thu
@@ -181,29 +192,9 @@
               <i style="margin-left: 4px" class="fa fa-envelope" aria-hidden="true"></i>
               <p style="margin-left: 8px">
                 Liên hệ 
-                <span class="badge badge-info right">22</span>
+                <span class="badge badge-info right"></span>
               </p>
             </a>
-            <ul class="nav nav-treeview" style="display: none;">
-              <li class="nav-item">
-                <a href="{{ route('indexcontact') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Hộp thư đến </p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('sendcontact') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Gửi đi</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Thùng rác</p>
-                </a>
-              </li>
-            </ul>
           </li>
           <li class="nav-header" style="padding-top: 5px; color: #007bff">Quản lý Website</li>
           <li class="nav-item has-treeview">
@@ -223,7 +214,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="{{ route('indexuser') }}" class="nav-link">
               <i style="margin-left: 4px" class="fa fa-user" aria-hidden="true"></i>
               <p style="margin-left: 10px" >
                 Quản lý Người dùng
@@ -231,10 +222,10 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="{{ route('indexrole') }}" class="nav-link">
               <i style="margin-left: 4px" class="fa fa-info-circle" aria-hidden="true"></i>
               <p style="margin-left: 10px">
-                Thông tin 
+                Phân quyền 
               </p>
             </a>
           </li>

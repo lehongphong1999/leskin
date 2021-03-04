@@ -10,6 +10,7 @@
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="front/javascript/javascript.js"></script>
 	</head>
 	<body>
         @include('Frontend.layouts.header')
@@ -32,26 +33,14 @@
 							<br>
 							<p style="font-size: 14px; font-weight: 600;">{{ Auth::user()->name }}</p>
 							<p style="font-size: 14px; font-weight: 550;">{{ Auth::user()->email }}</p>
-							{{--  <div class="discout">
-								<div class="voucher" >
-									<span >Voucher |</span>
-									<br>
-									<p>5</p>
-								</div>
-								<div class="coupon">
-									<span>Coupon</span>
-									<br>
-									<p>5</p>
-								</div>
-							</div>  --}}
 						</div>		
 					</div>	
 					<div>
 						<ul>
 							<li><a href="{{ route('userinfo') }}"><i style="font-size: 25px; margin-top: 10px; margin-right: 10px;" class="fa fa-user-circle-o" aria-hidden="true"></i>Thông tin cá nhân </a></li> 
 							<li><a href="{{ route('usersecurity') }}"><i style="font-size: 25px; margin-top: 10px; margin-right: 10px;" class="fa fa-key" aria-hidden="true"></i>Thông tin bảo mật </a></li> 
-							{{--  <li><a href="{{ route('userwallet') }}"><i style="font-size: 25px; margin-top: 10px; margin-right: 10px;" class="fa fa-credit-card" aria-hidden="true"></i>Thông tin ví </a></li>   --}}
-							{{--  <li><a href="{{ route('userhistory') }}"><i style="font-size: 25px; margin-top: 10px; margin-right: 10px;" class="fa fa-history" aria-hidden="true"></i>Lịch sử giao dịch </a></li>   --}}
+							<li><a href="{{ route('cart') }}"><i style="font-size: 25px; margin-top: 10px; margin-right: 10px;" class="fa fa-shopping-cart" aria-hidden="true"></i>Giỏ hàng </a></li> 
+							<li><a href="{{ route('userhistory') }}"><i style="font-size: 25px; margin-top: 10px; margin-right: 10px;" class="fa fa-history" aria-hidden="true"></i>Lịch sử  </a></li>   
 							{{--  <li><a href="{{ route('userqrcode') }}"><i style="font-size: 25px; margin-top: 10px; margin-right: 10px;" class="fa fa-qrcode" aria-hidden="true"></i>QR Code  </a></li>   --}}
 							<li><a href="{{ route('logout') }}"><i style="font-size: 25px; margin-top: 10px; margin-right: 10px;" class="fa fa-sign-out" aria-hidden="true"></i>Đăng xuất </a></li> 
 						  </ul>

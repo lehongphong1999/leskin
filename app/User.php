@@ -36,4 +36,21 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $table = 'users';
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+    public function checkPemissionAccess($check)
+    {
+
+        $roles = auth()->user()->role;
+            $permissions = $roles->permissions;
+            if ($permissions->contains('slug', $check)) {
+                return true;
+            }
+            return false;
+    }
 }

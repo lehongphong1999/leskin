@@ -43,22 +43,22 @@
         <p style="font-weight: 600;margin-top: 40px; font-size: 20px;">Thông tin liên hệ</p>
         <ul>
             <li>
-                <p><i class="fa fa-map-marker" aria-hidden="true" style="margin-right: 9px; color: #de9228;"></i>Số 1 LK 11A, KĐT Mỗ Lao, Hà Đông, Hà Nội</p>
+                <p><i class="fa fa-map-marker" aria-hidden="true" style="margin-right: 9px; color: #de9228;"></i>43 Trần Xuân Soạn, Ngô Thì Nhậm, Hai Bà Trưng, Hà Nội</p>
             </li>
             <li>
-                <p><i class="fa fa-phone" aria-hidden="true" style="margin-right: 9px;color: #de9228;"></i>320 686 55</p> 
+                <p><i class="fa fa-phone" aria-hidden="true" style="margin-right: 9px;color: #de9228;"></i>032 6868 68</p> 
             </li>
             <li>
-                <p><i class="fa fa-envelope" aria-hidden="true" style="margin-right: 9px;color: #de9228;"></i>info@leskin.vn</p>
+                <p><i class="fa fa-envelope" aria-hidden="true" style="margin-right: 9px;color: #de9228;"></i>info@beautyspa.com.vn</p>
             </li>
             <li>
-                <p><i class="fa fa-globe"  aria-hidden="true" style="margin-right: 9px;color: #de9228;"></i>www.leskin.vn</p>
+                <p><i class="fa fa-globe"  aria-hidden="true" style="margin-right: 9px;color: #de9228;"></i>www.beautyspa.vn</p>
             </li>
         </ul>
     </div>
 </div>
 <div class="map">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.582272719551!2d105.81802711444496!3d21.009375493816727!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ad02ce4d8575%3A0x309c60dfb498ba3b!2zRGV2bWFzdGVyIMSQw6BvIFThuqFvIEzhuq1wIFRyw6xuaA!5e0!3m2!1svi!2s!4v1599536354011!5m2!1svi!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.3951200147494!2d105.85136051444506!3d21.016870593561052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abf2c6b8a479%3A0x7efbf7b3b7611cc6!2zVHLhuqduIFh1w6JuIFNv4bqhbiwgTmfDtCBUaMOsIE5o4bqtbSwgSGFpIELDoCBUcsawbmcsIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1613810321826!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 </div>
 
 @endsection

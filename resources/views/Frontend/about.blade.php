@@ -16,7 +16,7 @@
         </div>
 		<div class="brand-banner3">
 			<div class="title-3">
-				<h3>VÌ SAO CHỌN LESKIN ?</h3>
+				<h3>VÌ SAO CHỌN BEAUTY SPA ?</h3>
 			</div>
 			<div class="br-bn-3-header">
 				<div class="img3">
